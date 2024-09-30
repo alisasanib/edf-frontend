@@ -1,0 +1,6 @@
+.Header_container {
+  height: 3rem;
+  box-shadow: var(--Paper-shadow);
+  display: flex;
+  align-items: center;
+}

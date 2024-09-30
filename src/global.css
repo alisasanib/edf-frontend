@@ -1,0 +1,24 @@
+body.light-mode {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --hover-background-color: rgba(0, 0, 0, 0.04);
+  --Paper-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  --background-color-modal: #ffffff;
+}
+
+body.dark-mode {
+  --background-color: #1e1e1e;
+  --text-color: #ffffff;
+  --hover-background-color: rgba(255, 255, 255, 0.08);
+  --Paper-shadow: 0px 2px 1px -1px rgba(255, 255, 255, 0.1), 0px 1px 1px 0px rgba(255, 255, 255, 0.05),
+    0px 1px 3px 0px rgba(255, 255, 255, 0.08);
+  --background-color-modal: rgb(80, 80, 80);
+}
+
+body {
+  background-color: var(--background-color);
+  margin: 0;
+  color: var(--text-color);
+  font-family: "Nunito Sans", sans-serif;
+}
