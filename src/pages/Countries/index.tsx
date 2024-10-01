@@ -66,13 +66,7 @@ const Countries: React.FC = () => {
     setSearchTerm(value);
   }, []);
   return (
-    <div
-      style={{
-        margin: "2rem 2rem",
-        display: "flex",
-        flexDirection: "column",
-        gap: "4rem",
-      }}>
+    <div className={styles.countries_container}>
       <SearchInput
         searchTerm={searchTerm}
         searchBy={searchBy}
@@ -83,9 +77,9 @@ const Countries: React.FC = () => {
         handleCountrySelect={handleCountrySelect}
       />
 
-      <div className={styles.Countries_container}>
+      <div className={styles.countries_list}>
         {loading ? (
-          <div style={{ display: "flex", justifyContent: "center", width: "inherit" }}>
+          <div className={styles.countries_loader}>
             <CircularLoader />
           </div>
         ) : error ? (

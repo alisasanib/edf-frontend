@@ -22,26 +22,26 @@ const ModalContent: React.FC<ModalContentProps> = ({ name }) => {
 
   return (
     <div className={styles.modal_content_container}>
-      <div style={{ borderRadius: "inherit" }}>
+      <div className={styles.country_imageWrapper}>
         <img
-          style={{ width: "250px", height: "auto", borderRadius: "inherit" }}
+          className={styles.country_image}
           src={country.flags?.png}
           alt={country.flags?.alt}
         />
       </div>
-      <div>
-        <h4>{country.name.official}</h4>
-        <p>Capital: {country.capital}</p>
-        <p>Region: {country.region}</p>
-        <p>Sub-region: {country.subregion}</p>
-        <p>
+      <div className={styles.country_details}>
+        <h4 className={styles.country_name}>{country.name.official}</h4>
+        <p className={styles.country_info}>Capital: {country.capital}</p>
+        <p className={styles.country_info}>Region: {country.region}</p>
+        <p className={styles.country_info}>Sub-region: {country.subregion}</p>
+        <p className={styles.country_info}>
           Currencies:{" "}
           {country.currencies &&
             Object.keys(country.currencies).map(
               (key) => `${country.currencies?.[key].name}(${country.currencies?.[key].symbol})`
             )}
         </p>
-        <p>
+        <p className={styles.country_info}>
           Languages:{" "}
           {country.languages &&
             Object.keys(country.languages)

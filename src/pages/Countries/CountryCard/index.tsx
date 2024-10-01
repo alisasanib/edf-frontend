@@ -25,18 +25,20 @@ const CountryCard: React.FC<CountryCardProps> = (props) => {
       onClick={handleInteraction}
       onKeyDown={handleKeyPress}
       className={styles.Country_card}>
-      <div style={{ borderRadius: "inherit" }}>
+      <div className={styles.Country_imageWrapper}>
         <img
-          style={{ width: "100%", height: "12rem", borderRadius: "inherit" }}
+          className={styles.Country_image}
           src={props.country.flags?.png}
           alt={props.country.flags?.alt}
         />
       </div>
-      <div style={{ margin: "1rem" }}>
-        <h4 style={{ padding: "0.5rem" }}>
+      <div className={styles.Country_details}>
+        <h4 className={styles.Country_name}>
           {props.country.flag} {props.country.name.official}
         </h4>
-        <p>Capital: {props.country.capital}</p>
+        <p className={styles.Country_capital}>
+          Capital: {props.country.capital}
+        </p>
       </div>
     </div>
   );

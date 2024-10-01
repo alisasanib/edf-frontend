@@ -1,9 +1,33 @@
 .modal_content_container {
   display: flex;
-  gap: 20px;
+  gap: 1rem;
 }
+
 @media (max-width: 854px) {
   .modal_content_container {
     flex-direction: column;
   }
+}
+.country_imageWrapper {
+  border-radius: inherit;
+}
+
+.country_image {
+  width: 250px;
+  height: auto;
+  border-radius: inherit;
+}
+
+.country_details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.country_name {
+  font-size: clamp(1.2rem, 1.8vw + 0.4rem, 2rem);
+}
+
+.country_info {
+  font-size: clamp(0.9rem, 1.2vw + 0.3rem, 1.3rem);
 }

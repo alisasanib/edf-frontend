@@ -6,7 +6,14 @@
   padding: 0;
 }
 
-.Countries_container {
+.countries_container {
+  margin: 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.countries_list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -18,8 +25,14 @@
   box-sizing: border-box;
 }
 
+.countries_loader {
+  display: flex;
+  justify-content: center;
+  width: inherit;
+}
+
 @media (max-width: 854px) {
-  .Countries_container {
+  .countries_list {
     justify-content: space-around;
   }
 }

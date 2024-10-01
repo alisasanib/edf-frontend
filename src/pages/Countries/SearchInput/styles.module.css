@@ -12,6 +12,12 @@
   min-width: 200px;
 }
 
+.search_container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
 @media (max-width: 854px) {
   .search_container {
     flex-direction: column;

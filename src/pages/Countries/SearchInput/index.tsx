@@ -57,9 +57,7 @@ const SearchInput: React.FC<SearchInputProps> = (props) => {
   }, [activeIndex, props.countries]);
 
   return (
-    <div
-      className={styles.search_container}
-      style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+    <div className={styles.search_container}>
       <div style={{ position: "relative" }}>
         <InputField
           value={props.searchTerm}

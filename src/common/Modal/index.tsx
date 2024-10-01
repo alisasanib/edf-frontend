@@ -65,12 +65,13 @@ const Modal: React.FC<PropsWithChildren<ModalProps>> = React.memo(({ visible = f
         ref={modalRef}
         className={`${styles.Modal}`}>
         {props.title && <h2 id='modal-title'>{props.title}</h2>}
-        {props.content && <div id='modal-description'>{props.content}</div>}
-        {props.children}
+        <div className={styles.Modal_content}>
+          {props.content && <div id='modal-description'>{props.content}</div>}
+          {props.children}
+        </div>
         <button
           aria-label='Close modal'
           data-testid='close-model'
-          style={{ background: "none", border: "none" }}
           onClick={onHide}
           className={styles.Modal_close}>
           <img

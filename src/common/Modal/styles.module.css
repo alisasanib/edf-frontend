@@ -45,13 +45,13 @@
   box-shadow: var(--Paper-shadow);
   max-width: 80vw;
   min-width: 35vw;
+  max-height: 80vh;
+  overflow: hidden;
 }
 
-.Modal_Dark {
-  background: rgb(80, 80, 80);
-  border: 2px solid rgb(0, 0, 0);
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 11px 15px -7px, rgba(0, 0, 0, 0.14) 0px 24px 38px 3px,
-    rgba(0, 0, 0, 0.12) 0px 9px 46px 8px;
+.Modal_content {
+  overflow: auto;
+  max-height: calc(80vh - 60px);
 }
 
 .Modal_close {
@@ -59,4 +59,6 @@
   top: 15px;
   right: 15px;
   cursor: pointer;
+  background: none;
+  border: none;
 }
