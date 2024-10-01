@@ -1,0 +1,81 @@
+.select {
+  width: 100%;
+  max-width: 11rem;
+  border: solid black 1px;
+  height: 3rem;
+  padding: 0rem 1.1875rem 0rem 1.5rem;
+  color: inherit;
+  border-color: inherit;
+  background: inherit;
+  border-radius: 0.3125rem;
+  box-shadow: rgba(100, 100, 100, 0.055) 0rem 0.125rem 0.5625rem;
+  min-width: 200px;
+}
+
+@media (max-width: 854px) {
+  .search_container {
+    flex-direction: column;
+  }
+  .select {
+    min-width: 300px;
+  }
+}
+
+.input {
+  width: 100%;
+  min-width: 300px;
+  max-width: 25rem;
+  border: solid black 1px;
+  height: 3rem;
+  padding: 0rem 1.1875rem 0rem 1.5rem;
+  color: inherit;
+  border-color: inherit;
+  background: inherit;
+  border-radius: 0.3125rem;
+  box-shadow: rgba(100, 100, 100, 0.055) 0rem 0.125rem 0.5625rem;
+}
+
+.option {
+  color: inherit;
+  border-color: inherit;
+  background: var(--background-color);
+}
+
+.autocompleteList {
+  position: absolute;
+  max-height: 200px;
+  overflow: auto;
+  top: 51px;
+  background: white;
+  width: -webkit-fill-available;
+
+  box-shadow: var(--Paper-shadow);
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.autocompleteItem {
+  padding: 10px 16px;
+  cursor: pointer;
+}
+.activeItem {
+  background-color: var(--hover-background-color);
+}
+.autocompleteItem:hover {
+  background-color: var(--hover-background-color);
+}
+.autocompleteItem:focus {
+  background-color: var(--hover-background-color);
+}
+
+@media (max-width: 854px) {
+  .select {
+    padding: 0rem 0.6rem 0rem 0.6rem;
+  }
+}
+
+@media (max-width: 854px) {
+  .input {
+    padding: 0rem 0.6rem 0rem 0.6rem;
+  }
+}

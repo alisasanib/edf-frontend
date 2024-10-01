@@ -1,0 +1,26 @@
+.select {
+  width: 100%;
+  max-width: 11rem;
+  border: solid black 1px;
+  height: 3rem;
+  padding: 0rem 1.1875rem 0rem 1.5rem;
+  color: inherit;
+  border-color: inherit;
+  background: inherit;
+  border-radius: 0.3125rem;
+  box-shadow: rgba(100, 100, 100, 0.055) 0rem 0.125rem 0.5625rem;
+  min-width: 200px;
+}
+
+@media (max-width: 854px) {
+  .select {
+    min-width: 300px;
+    padding: 0rem 0.6rem 0rem 0.6rem;
+  }
+}
+
+.option {
+  color: inherit;
+  border-color: inherit;
+  background: var(--background-color);
+}

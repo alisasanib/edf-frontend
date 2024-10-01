@@ -6,6 +6,7 @@ interface InputFieldProps {
   onChange: (value: string) => void;
   onFocus: () => void;
   onBlur: () => void;
+  onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   placeholder?: string;
   isAutoComplete: boolean;
   ariaExpanded: boolean;
@@ -21,6 +22,7 @@ const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
       onChange,
       onFocus,
       onBlur,
+      onKeyDown,
       placeholder,
       isAutoComplete,
       ariaExpanded,
@@ -42,6 +44,7 @@ const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
           onBlur={onBlur}
           value={value}
           onChange={(e) => onChange(e.target.value)}
+          onKeyDown={onKeyDown}
           placeholder={placeholder}
           aria-label={ariaLabel}
           aria-expanded={ariaExpanded}
