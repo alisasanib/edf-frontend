@@ -1,0 +1,9 @@
+.modal_content_container {
+  display: flex;
+  gap: 20px;
+}
+@media (max-width: 854px) {
+  .modal_content_container {
+    flex-direction: column;
+  }
+}

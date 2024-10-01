@@ -12,19 +12,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.3s ease-in-out; /* Transition for smoother animation */
+  transition: opacity 0.3s ease-in-out;
 }
 
 .Modal_AbsoluteWrapper__shadow {
   opacity: 0;
-  z-index: 1; /* Slightly lower z-index for the shadow */
+  z-index: 1;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: rgba(18, 18, 18, 0.7);
-  transition: opacity 0.3s ease-in-out; /* Ensure transition matches modal */
+  transition: opacity 0.3s ease-in-out;
 }
 
 .Modal_AbsoluteWrapper__shadowActive {
@@ -38,12 +38,12 @@
   border-radius: 28px;
   padding: 24px;
   background: #f2f6fc;
-  transition: background 0.3s ease; /* Transition for background */
+  transition: background 0.3s ease;
   position: relative;
-
-  background-color: var(--background-color-modal); /* Will change based on body class */
+  background-color: var(--background-color-modal);
   border: 2px solid rgb(0, 0, 0);
-  box-shadow: var(--Paper-shadow); /* Will change based on body class */
+  box-shadow: var(--Paper-shadow);
+  max-width: 80vw;
 }
 
 .Modal_Dark {

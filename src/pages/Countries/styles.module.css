@@ -19,7 +19,7 @@
   box-sizing: border-box;
 }
 
-@media (max-width: 830px) {
+@media (max-width: 854px) {
   .Countries_container {
     justify-content: space-around;
   }

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useFetchCountries } from "../../../hooks/useFetchCountries";
+import styles from "./styles.module.css";
 
 interface ModalContentProps {
   name: string;
@@ -19,7 +20,7 @@ const ModalContent = ({ name }: ModalContentProps) => {
   const country = countries[0];
 
   return (
-    <div style={{ display: "flex", gap: 25 }}>
+    <div className={styles.modal_content_container}>
       <div style={{ borderRadius: "inherit" }}>
         <img
           style={{ width: "250px", height: "auto", borderRadius: "inherit" }}

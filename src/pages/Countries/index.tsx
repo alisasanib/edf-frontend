@@ -1,4 +1,5 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
+import useInfiniteScroll from "../../hooks/useInfiniteScroll";
 import CountryCard from "./CountryCard";
 import Modal from "../../common/Modal";
 import SearchInput from "./SearchInput";
@@ -14,13 +15,14 @@ const SearchCountries = () => {
   const [searchBy, setSearchBy] = useState<"name" | "capital" | "region">("name");
   const [selectedCountry, setSelectedCountry] = useState<Country | null>(null);
   const [displayModal, setDisplayModal] = useState<boolean>(false);
+  const [visibleCountries, setVisibleCountries] = useState<number>(20);
 
   const { countries, allCountries, fetchAllCountries, fetchCountryByName, loading, error } = useFetchCountries();
 
   useEffect(() => {
     if (!searchTerm) {
       if (allCountries.length) {
-        fetchAllCountries("fields=name,flags,capital"); // If needed to ensure data consistency
+        fetchAllCountries("fields=name,flags,capital");
       } else {
         fetchAllCountries("fields=name,flags,capital");
       }
@@ -29,6 +31,17 @@ const SearchCountries = () => {
     }
   }, [searchTerm, searchBy, allCountries, fetchAllCountries, fetchCountryByName]);
 
+  const visibleCountryList = useMemo(() => {
+    return countries.slice(0, visibleCountries);
+  }, [countries, visibleCountries]);
+
+  const loadMore = useCallback(() => {
+    if (visibleCountries < countries.length) {
+      setVisibleCountries((prevVisible) => prevVisible + 20);
+    }
+  }, [countries.length, visibleCountries]);
+
+  useInfiniteScroll(loading, loadMore);
 
   const handleSelectCountry = useCallback((country: Country) => {
     setSelectedCountry(country);
@@ -76,7 +89,7 @@ const SearchCountries = () => {
         ) : error ? (
           <div>{error}</div>
         ) : (
-          countries.map((country) => (
+          visibleCountryList.map((country) => (
             <CountryCard
               key={country.name.official}
               handleSelectCountry={handleSelectCountry}
