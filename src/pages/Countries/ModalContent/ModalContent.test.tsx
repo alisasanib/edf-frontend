@@ -21,7 +21,7 @@ describe("ModalContent Component", () => {
     });
 
     render(<ModalContent name='Germany' />);
-    expect(screen.getByText(/loading/i)).toBeInTheDocument();
+    expect(screen.getByTestId("circular-loader")).toBeInTheDocument();
   });
 
   test("displays error state", () => {

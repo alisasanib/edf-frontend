@@ -43,7 +43,7 @@ describe("<Countries />", () => {
     });
 
     renderWithTheme(<Countries />);
-    expect(screen.getByText("Loading...")).toBeInTheDocument();
+    expect(screen.getByTestId("circular-loader")).toBeInTheDocument();
   });
 
   test("displays an error message when there is an error", () => {
