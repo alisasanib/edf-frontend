@@ -8,7 +8,7 @@ import { useFetchCountries } from "../../hooks/useFetchCountries";
 import { debounced } from "../../utils/debounce";
 import { Country } from "../../types/Country.dto";
 import styles from "./styles.module.css";
-
+import CircularLoader from "../../common/CircularLoader";
 
 const SearchCountries = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -85,7 +85,9 @@ const SearchCountries = () => {
 
       <div className={styles.Countries_container}>
         {loading ? (
-          <div>Loading...</div>
+          <div style={{ display: "flex", justifyContent: "center", width: "inherit" }}>
+            <CircularLoader />
+          </div>
         ) : error ? (
           <div>{error}</div>
         ) : (

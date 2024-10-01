@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useFetchCountries } from "../../../hooks/useFetchCountries";
 import styles from "./styles.module.css";
+import CircularLoader from "../../../common/CircularLoader";
 
 interface ModalContentProps {
   name: string;
@@ -13,7 +14,7 @@ const ModalContent = ({ name }: ModalContentProps) => {
     fetchCountryByName(name);
   }, [name, fetchCountryByName]);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <CircularLoader />;
   if (error) return <div>Error: {error}</div>;
   if (!countries.length) return null;
 

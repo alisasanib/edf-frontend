@@ -36,7 +36,7 @@
   flex-direction: column;
   justify-content: space-between;
   border-radius: 28px;
-  padding: 24px;
+  padding: 40px;
   background: #f2f6fc;
   transition: background 0.3s ease;
   position: relative;
@@ -44,6 +44,7 @@
   border: 2px solid rgb(0, 0, 0);
   box-shadow: var(--Paper-shadow);
   max-width: 80vw;
+  min-width: 35vw;
 }
 
 .Modal_Dark {
