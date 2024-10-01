@@ -7,7 +7,11 @@ import { API_URL } from "../config";
 jest.mock("../utils/fetchData");
 const mockFetchData = fetchData as jest.MockedFunction<typeof fetchData>;
 
-const HookWrapper = ({ callback }: any) => {
+interface HookWrapperProps {
+  callback: () => void;
+}
+
+const HookWrapper: React.FC<HookWrapperProps> = ({ callback }) => {
   callback();
   return null;
 };
@@ -26,7 +30,7 @@ describe("useFetchCountries hook", () => {
       },
     ];
     mockFetchData.mockResolvedValueOnce(mockCountryData);
-    let result: any;
+    let result: ReturnType<typeof useFetchCountries> | undefined;
 
     render(
       <HookWrapper
@@ -37,15 +41,15 @@ describe("useFetchCountries hook", () => {
     );
 
     act(() => {
-      result.fetchCountryByName("France");
+      result?.fetchCountryByName("France");
     });
 
-    expect(result.loading).toBe(true);
+    expect(result?.loading).toBe(true);
 
-    await waitFor(() => expect(result.loading).toBe(false));
+    await waitFor(() => expect(result?.loading).toBe(false));
 
-    expect(result.countries).toEqual(mockCountryData);
-    expect(result.error).toBeNull();
+    expect(result?.countries).toEqual(mockCountryData);
+    expect(result?.error).toBeNull();
 
     expect(mockFetchData).toHaveBeenCalledWith(`${API_URL}/name/France`);
   });
@@ -53,7 +57,8 @@ describe("useFetchCountries hook", () => {
   test("handles error when fetching a single country", async () => {
     mockFetchData.mockRejectedValueOnce(new Error("Network Error"));
 
-    let result: any;
+    let result: ReturnType<typeof useFetchCountries> | undefined;
+
     render(
       <HookWrapper
         callback={() => {
@@ -63,12 +68,12 @@ describe("useFetchCountries hook", () => {
     );
 
     act(() => {
-      result.fetchCountryByName("InvalidCountry");
+      result?.fetchCountryByName("InvalidCountry");
     });
 
-    await waitFor(() => expect(result.loading).toBe(false));
-    expect(result.countries).toEqual([]);
-    expect(result.error).toBe("Network Error");
+    await waitFor(() => expect(result?.loading).toBe(false));
+    expect(result?.countries).toEqual([]);
+    expect(result?.error).toBe("Network Error");
   });
 
   test("fetches all countries successfully", async () => {
@@ -79,7 +84,7 @@ describe("useFetchCountries hook", () => {
 
     mockFetchData.mockResolvedValueOnce(mockAllCountriesData);
 
-    let result: any;
+    let result: ReturnType<typeof useFetchCountries> | undefined;
     render(
       <HookWrapper
         callback={() => {
@@ -89,16 +94,16 @@ describe("useFetchCountries hook", () => {
     );
 
     act(() => {
-      result.fetchAllCountries("");
+      result?.fetchAllCountries("");
     });
 
-    expect(result.loading).toBe(true);
+    expect(result?.loading).toBe(true);
 
-    await waitFor(() => expect(result.loading).toBe(false));
+    await waitFor(() => expect(result?.loading).toBe(false));
 
-    expect(result.countries).toEqual(mockAllCountriesData);
-    expect(result.allCountries).toEqual(mockAllCountriesData);
-    expect(result.error).toBeNull();
+    expect(result?.countries).toEqual(mockAllCountriesData);
+    expect(result?.allCountries).toEqual(mockAllCountriesData);
+    expect(result?.error).toBeNull();
     expect(mockFetchData).toHaveBeenCalledWith(`${API_URL}/all?`);
   });
 
@@ -110,7 +115,8 @@ describe("useFetchCountries hook", () => {
 
     mockFetchData.mockResolvedValueOnce(mockAllCountriesData);
 
-    let result: any;
+    let result: ReturnType<typeof useFetchCountries> | undefined;
+
     render(
       <HookWrapper
         callback={() => {
@@ -118,15 +124,16 @@ describe("useFetchCountries hook", () => {
         }}
       />
     );
+
     act(() => {
-      result.fetchAllCountries("");
+      result?.fetchAllCountries("");
     });
 
-    await waitFor(() => expect(result.loading).toBe(false));
+    await waitFor(() => expect(result?.loading).toBe(false));
     act(() => {
-      result.fetchAllCountries("");
+      result?.fetchAllCountries("");
     });
     expect(mockFetchData).toHaveBeenCalledTimes(1);
-    expect(result.countries).toEqual(mockAllCountriesData);
+    expect(result?.countries).toEqual(mockAllCountriesData);
   });
 });
