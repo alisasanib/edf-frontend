@@ -1,6 +1,6 @@
 import { useTheme } from "../../hooks/useTheme";
-import SunIcon from "./light-mode-svgrepo-com.svg";
-import MoonIcon from "./moon-dark-theme-svgrepo-com.svg";
+import SunIcon from "../../assets/icons/light-mode-svgrepo-com.svg";
+import MoonIcon from "../../assets/icons/moon-dark-theme-svgrepo-com.svg";
 
 const ThemeToggleButton = () => {
   const { isDarkMode, toggleTheme } = useTheme();
