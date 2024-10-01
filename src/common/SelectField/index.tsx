@@ -1,9 +1,10 @@
 import React from "react";
+import { SearchOptions } from "../../types/SearchOptions.dto";
 import styles from "./styles.module.css";
 
 interface SelectFieldProps {
-  value: "name" | "capital" | "region";
-  onChange: (value: "name" | "capital" | "region") => void;
+  value: SearchOptions;
+  onChange: (value: SearchOptions) => void;
   options: {
     key: string;
     value: string;
@@ -24,7 +25,7 @@ const SelectField: React.FC<SelectFieldProps> = ({ value, onChange, options, lab
         data-testid='select-menu'
         className={styles.select}
         value={value}
-        onChange={(e) => onChange(e.target.value as "name" | "capital" | "region")}
+        onChange={(e) => onChange(e.target.value as SearchOptions)}
         aria-label={label}>
         {options.map((option) => (
           <option

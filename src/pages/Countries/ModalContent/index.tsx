@@ -7,7 +7,7 @@ interface ModalContentProps {
   name: string;
 }
 
-const ModalContent = ({ name }: ModalContentProps) => {
+const ModalContent: React.FC<ModalContentProps> = ({ name }) => {
   const { countries, fetchCountryByName, loading, error } = useFetchCountries();
 
   useEffect(() => {

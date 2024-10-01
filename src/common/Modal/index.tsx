@@ -1,9 +1,9 @@
 import React, { PropsWithChildren, useCallback, useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
-import styles from "./styles.module.css";
 import useOutsideClick from "../../hooks/useClickOutside";
 import CloseIcon from "../../assets/icons/cross-close-svgrepo-com.svg";
 import getScrollbarSize from "../../utils/getScrollbarSize";
+import styles from "./styles.module.css";
 
 export interface ModalProps {
   visible?: boolean;

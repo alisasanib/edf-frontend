@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
-import styles from "./styles.module.css";
-import { Country } from "../../../types/Country.dto";
 import { InputField, SelectField } from "../../../common";
+import { Country } from "../../../types/Country.dto";
+import { SearchOptions } from "../../../types/SearchOptions.dto";
+import styles from "./styles.module.css";
 
 interface SearchInputProps {
   searchTerm: string;
-  searchBy: "name" | "capital" | "region";
+  searchBy: SearchOptions;
   onSeachTermChange: (value: string) => void;
-  onSeachByChange: (value: "name" | "capital" | "region") => void;
+  onSeachByChange: (value: SearchOptions) => void;
   isAutoComplete: boolean;
   handleCountrySelect?: (value: string) => void;
   countries?: Country[];

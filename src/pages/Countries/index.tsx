@@ -7,11 +7,12 @@ import ModalContent from "./ModalContent";
 import { useFetchCountries } from "../../hooks/useFetchCountries";
 import { debounced } from "../../utils/debounce";
 import { Country } from "../../types/Country.dto";
+import { SearchOptions } from "../../types/SearchOptions.dto";
 import styles from "./styles.module.css";
 
-const SearchCountries = () => {
+const Countries: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [searchBy, setSearchBy] = useState<"name" | "capital" | "region">("name");
+  const [searchBy, setSearchBy] = useState<SearchOptions>("name");
   const [selectedCountry, setSelectedCountry] = useState<Country | null>(null);
   const [displayModal, setDisplayModal] = useState<boolean>(false);
   const [visibleCountries, setVisibleCountries] = useState<number>(20);
@@ -56,7 +57,7 @@ const SearchCountries = () => {
     setSearchTerm(value);
   }, []);
 
-  const onSearchByChange = useCallback((value: "name" | "capital" | "region") => {
+  const onSearchByChange = useCallback((value: SearchOptions) => {
     setSearchBy(value);
     setSearchTerm("");
   }, []);
@@ -111,4 +112,4 @@ const SearchCountries = () => {
   );
 };
 
-export default SearchCountries;
+export default Countries;

@@ -1,12 +1,13 @@
 import "@testing-library/jest-dom";
 import { render, screen, fireEvent } from "@testing-library/react";
 import SelectField from "./";
+import { SearchOptions } from "../../types/SearchOptions.dto";
 
 describe("SelectField", () => {
   const mockOnChange = jest.fn();
 
   const defaultProps = {
-    value: "name" as "name" | "capital" | "region",
+    value: "name" as SearchOptions,
     onChange: mockOnChange,
     options: [
       { key: "name", value: "Name" },

@@ -1,13 +1,13 @@
+import { KeyboardEvent } from "react";
 import { Country } from "../../../types/Country.dto";
 import styles from "./styles.module.css";
-import { KeyboardEvent } from "react";
 
 interface CountryCardProps {
   country: Country;
   handleSelectCountry: (country: Country) => void;
 }
 
-const CountryCard = (props: CountryCardProps) => {
+const CountryCard: React.FC<CountryCardProps> = (props) => {
   const handleInteraction = () => {
     props.handleSelectCountry(props.country);
   };
