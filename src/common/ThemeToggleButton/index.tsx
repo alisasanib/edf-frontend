@@ -2,7 +2,7 @@ import { useTheme } from "../../hooks/useTheme";
 import SunIcon from "../../assets/icons/light-mode-svgrepo-com.svg";
 import MoonIcon from "../../assets/icons/moon-dark-theme-svgrepo-com.svg";
 
-const ThemeToggleButton = () => {
+const ThemeToggleButton: React.FC = () => {
   const { isDarkMode, toggleTheme } = useTheme();
 
   return (

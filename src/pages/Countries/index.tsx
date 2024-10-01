@@ -1,14 +1,13 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import useInfiniteScroll from "../../hooks/useInfiniteScroll";
 import CountryCard from "./CountryCard";
-import Modal from "../../common/Modal";
+import { Modal, CircularLoader } from "../../common";
 import SearchInput from "./SearchInput";
 import ModalContent from "./ModalContent";
 import { useFetchCountries } from "../../hooks/useFetchCountries";
 import { debounced } from "../../utils/debounce";
 import { Country } from "../../types/Country.dto";
 import styles from "./styles.module.css";
-import CircularLoader from "../../common/CircularLoader";
 
 const SearchCountries = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");

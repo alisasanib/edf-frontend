@@ -1,4 +1,4 @@
-import Header from "./common/Header";
+import { Header } from "./common";
 import Countries from "./pages/Countries";
 
 function App() {

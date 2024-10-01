@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useFetchCountries } from "../../../hooks/useFetchCountries";
+import { CircularLoader } from "../../../common";
 import styles from "./styles.module.css";
-import CircularLoader from "../../../common/CircularLoader";
 
 interface ModalContentProps {
   name: string;

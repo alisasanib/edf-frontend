@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./styles.module.css";
 import { Country } from "../../../types/Country.dto";
-import InputField from "../../../common/InputField";
-import SelectField from "../../../common/SelectField";
+import { InputField, SelectField } from "../../../common";
 
 interface SearchInputProps {
   searchTerm: string;
