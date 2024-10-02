@@ -37,3 +37,19 @@ npm install
 ```sh
 npm run dev
 ```
+
+### Features Added
+
+1. Search Options: Added the ability to search by different criteria (name, capital, or region).
+2. Infinite Scrolling: Implemented infinite scrolling to dynamically load more countries as the user scrolls.
+3. Dark/Light Theme: Integrated a theme toggle that allows users to switch between light and dark modes.
+4. Autocomplete: Enhanced the search input with autocomplete functionality when searching by name.
+5. Debouncing: Applied debouncing to the search input to improve performance and user experience.
+6. Country Details Modal: Added a feature where users can click on a country to display more detailed information, fetching additional data dynamically.
+
+### Additional Enhancements
+
+1. Accessibility Improvements: Ensured better keyboard navigation, screen reader support, and general accessibility enhancements.
+2. Responsive Design: Made the application responsive to different screen sizes.
+3. Error Handling: Implemented robust error handling to gracefully handle API errors and provide user feedback.
+4. Unit and Integration tests
