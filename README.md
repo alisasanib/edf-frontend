@@ -53,3 +53,4 @@ npm run dev
 2. Responsive Design: Made the application responsive to different screen sizes.
 3. Error Handling: Implemented robust error handling to gracefully handle API errors and provide user feedback.
 4. Unit and Integration tests
+5. Improved Code Quality: Refined the codebase by enforcing stricter ESLint rules to improve maintainability and catch potential issues early.
