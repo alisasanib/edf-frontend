@@ -12,7 +12,7 @@ const mockProps = {
       alt: "Flag of Canada",
     },
   },
-  handleSelectCountry: jest.fn(),
+  onSelectCountry: jest.fn(),
 };
 
 describe("<CountryCard />", () => {
@@ -35,8 +35,8 @@ describe("<CountryCard />", () => {
     const card = screen.getByRole("button");
     fireEvent.click(card);
 
-    expect(mockProps.handleSelectCountry).toHaveBeenCalledTimes(1);
-    expect(mockProps.handleSelectCountry).toHaveBeenCalledWith(mockProps.country);
+    expect(mockProps.onSelectCountry).toHaveBeenCalledTimes(1);
+    expect(mockProps.onSelectCountry).toHaveBeenCalledWith(mockProps.country);
   });
 
   test("handles 'Enter' key press events", () => {
@@ -45,8 +45,8 @@ describe("<CountryCard />", () => {
     const card = screen.getByRole("button");
     fireEvent.keyDown(card, { key: "Enter" });
 
-    expect(mockProps.handleSelectCountry).toHaveBeenCalledTimes(1);
-    expect(mockProps.handleSelectCountry).toHaveBeenCalledWith(mockProps.country);
+    expect(mockProps.onSelectCountry).toHaveBeenCalledTimes(1);
+    expect(mockProps.onSelectCountry).toHaveBeenCalledWith(mockProps.country);
   });
 
   test("handles 'Space' key press events", () => {
@@ -55,15 +55,15 @@ describe("<CountryCard />", () => {
     const card = screen.getByRole("button");
     fireEvent.keyDown(card, { key: " " });
 
-    expect(mockProps.handleSelectCountry).toHaveBeenCalledTimes(1);
-    expect(mockProps.handleSelectCountry).toHaveBeenCalledWith(mockProps.country);
+    expect(mockProps.onSelectCountry).toHaveBeenCalledTimes(1);
+    expect(mockProps.onSelectCountry).toHaveBeenCalledWith(mockProps.country);
   });
 
-  test("does not call handleSelectCountry on non-Enter or non-Space keys", () => {
+  test("does not call onSelectCountry on non-Enter or non-Space keys", () => {
     render(<CountryCard {...mockProps} />);
 
     const card = screen.getByRole("button");
     fireEvent.keyDown(card, { key: "Tab" });
-    expect(mockProps.handleSelectCountry).not.toHaveBeenCalled();
+    expect(mockProps.onSelectCountry).not.toHaveBeenCalled();
   });
 });

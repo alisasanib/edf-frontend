@@ -7,7 +7,7 @@ jest.mock("../../hooks/useTheme", () => ({
   useTheme: jest.fn(),
 }));
 
-jest.mock("./cross-close-svgrepo-com.svg", () => "mocked-close-icon.svg");
+jest.mock("../../assets/icons/cross-close-svgrepo-com.svg", () => "mocked-close-icon.svg");
 
 describe("<Modal />", () => {
   const mockOnBgClick = jest.fn();

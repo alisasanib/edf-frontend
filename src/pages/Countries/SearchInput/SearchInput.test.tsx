@@ -36,7 +36,6 @@ const mockCountries: Country[] = [
 describe("<SearchInput />", () => {
   const mockOnSearchTermChange = jest.fn();
   const mockOnSearchByChange = jest.fn();
-  const mockHandleCountrySelect = jest.fn();
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -47,8 +46,8 @@ describe("<SearchInput />", () => {
       <SearchInput
         searchTerm=''
         searchBy='name'
-        onSeachTermChange={mockOnSearchTermChange}
-        onSeachByChange={mockOnSearchByChange}
+        onSearchTermChange={mockOnSearchTermChange}
+        onSearchByChange={mockOnSearchByChange}
         isAutoComplete={false}
       />
     );
@@ -65,8 +64,8 @@ describe("<SearchInput />", () => {
       <SearchInput
         searchTerm=''
         searchBy='name'
-        onSeachTermChange={mockOnSearchTermChange}
-        onSeachByChange={mockOnSearchByChange}
+        onSearchTermChange={mockOnSearchTermChange}
+        onSearchByChange={mockOnSearchByChange}
         isAutoComplete={false}
       />
     );
@@ -83,8 +82,8 @@ describe("<SearchInput />", () => {
       <SearchInput
         searchTerm=''
         searchBy='name'
-        onSeachTermChange={mockOnSearchTermChange}
-        onSeachByChange={mockOnSearchByChange}
+        onSearchTermChange={mockOnSearchTermChange}
+        onSearchByChange={mockOnSearchByChange}
         isAutoComplete={false}
       />
     );
@@ -101,11 +100,10 @@ describe("<SearchInput />", () => {
       <SearchInput
         searchTerm='Ger'
         searchBy='name'
-        onSeachTermChange={mockOnSearchTermChange}
-        onSeachByChange={mockOnSearchByChange}
+        onSearchTermChange={mockOnSearchTermChange}
+        onSearchByChange={mockOnSearchByChange}
         isAutoComplete={true}
         countries={mockCountries}
-        handleCountrySelect={mockHandleCountrySelect}
       />
     );
 
@@ -121,11 +119,10 @@ describe("<SearchInput />", () => {
       <SearchInput
         searchTerm=''
         searchBy='name'
-        onSeachTermChange={mockOnSearchTermChange}
-        onSeachByChange={mockOnSearchByChange}
+        onSearchTermChange={mockOnSearchTermChange}
+        onSearchByChange={mockOnSearchByChange}
         isAutoComplete={true}
         countries={mockCountries}
-        handleCountrySelect={mockHandleCountrySelect}
       />
     );
 
@@ -140,11 +137,10 @@ describe("<SearchInput />", () => {
       <SearchInput
         searchTerm='Ger'
         searchBy='name'
-        onSeachTermChange={mockOnSearchTermChange}
-        onSeachByChange={mockOnSearchByChange}
+        onSearchTermChange={mockOnSearchTermChange}
+        onSearchByChange={mockOnSearchByChange}
         isAutoComplete={true}
         countries={mockCountries}
-        handleCountrySelect={mockHandleCountrySelect}
       />
     );
 
@@ -159,7 +155,7 @@ describe("<SearchInput />", () => {
 
     fireEvent.keyDown(input, { key: "Enter" });
 
-    expect(mockHandleCountrySelect).toHaveBeenCalledWith("France");
+    expect(mockOnSearchTermChange).toHaveBeenCalledWith("France");
   });
 
   test("closes autocomplete on blur", () => {
@@ -167,11 +163,10 @@ describe("<SearchInput />", () => {
       <SearchInput
         searchTerm='Ger'
         searchBy='name'
-        onSeachTermChange={mockOnSearchTermChange}
-        onSeachByChange={mockOnSearchByChange}
+        onSearchTermChange={mockOnSearchTermChange}
+        onSearchByChange={mockOnSearchByChange}
         isAutoComplete={true}
         countries={mockCountries}
-        handleCountrySelect={mockHandleCountrySelect}
       />
     );
 
