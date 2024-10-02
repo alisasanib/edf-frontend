@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, memo } from "react";
 import { useFetchCountries } from "../../../hooks/useFetchCountries";
 import { CircularLoader } from "../../../common";
 import styles from "./styles.module.css";
@@ -7,7 +7,7 @@ interface ModalContentProps {
   name: string;
 }
 
-const ModalContent: React.FC<ModalContentProps> = ({ name }) => {
+const ModalContent: React.FC<ModalContentProps> = memo(({ name }) => {
   const { countries, fetchCountryByName, loading, error } = useFetchCountries();
 
   useEffect(() => {
@@ -51,6 +51,6 @@ const ModalContent: React.FC<ModalContentProps> = ({ name }) => {
       </div>
     </div>
   );
-};
+});
 
 export default ModalContent;

@@ -48,33 +48,29 @@ const Countries: React.FC = () => {
     setDisplayModal(true);
   }, []);
 
-  const onCloseModal = useCallback(() => {
+  const handleCloseModal = useCallback(() => {
     setDisplayModal(false);
     setSelectedCountry(null);
   }, []);
 
-  const onSearchTermChange = useCallback((value: string) => {
+  const handleSearchTermChange = useCallback((value: string) => {
     setSearchTerm(value);
   }, []);
 
-  const onSearchByChange = useCallback((value: SearchOptions) => {
+  const handleSearchByChange = useCallback((value: SearchOptions) => {
     setSearchBy(value);
     setSearchTerm("");
   }, []);
 
-  const handleCountrySelect = useCallback((value: string) => {
-    setSearchTerm(value);
-  }, []);
   return (
     <div className={styles.countries_container}>
       <SearchInput
         searchTerm={searchTerm}
         searchBy={searchBy}
-        onSeachTermChange={onSearchTermChange}
-        onSeachByChange={onSearchByChange}
+        onSearchTermChange={handleSearchTermChange}
+        onSearchByChange={handleSearchByChange}
         isAutoComplete={searchBy === "name"}
         countries={countries}
-        handleCountrySelect={handleCountrySelect}
       />
 
       <div className={styles.countries_list}>
@@ -88,7 +84,7 @@ const Countries: React.FC = () => {
           visibleCountryList.map((country) => (
             <CountryCard
               key={country.name.official}
-              handleSelectCountry={handleSelectCountry}
+              onSelectCountry={handleSelectCountry}
               country={country}
             />
           ))
@@ -98,7 +94,7 @@ const Countries: React.FC = () => {
       {!!selectedCountry && (
         <Modal
           visible={displayModal}
-          onBgClick={onCloseModal}>
+          onBgClick={handleCloseModal}>
           <ModalContent name={selectedCountry?.name?.official} />
         </Modal>
       )}

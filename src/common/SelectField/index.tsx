@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { SearchOptions } from "../../types/SearchOptions.dto";
 import styles from "./styles.module.css";
 
@@ -12,7 +12,7 @@ interface SelectFieldProps {
   label?: string;
 }
 
-const SelectField: React.FC<SelectFieldProps> = ({ value, onChange, options, label }) => {
+const SelectField: React.FC<SelectFieldProps> = memo(({ value, onChange, options, label }) => {
   return (
     <div>
       <label
@@ -39,6 +39,6 @@ const SelectField: React.FC<SelectFieldProps> = ({ value, onChange, options, lab
       </select>
     </div>
   );
-};
+});
 
 export default SelectField;

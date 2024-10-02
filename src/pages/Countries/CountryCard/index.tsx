@@ -1,15 +1,15 @@
-import { KeyboardEvent } from "react";
+import { KeyboardEvent, memo } from "react";
 import { Country } from "../../../types/Country.dto";
 import styles from "./styles.module.css";
 
 interface CountryCardProps {
   country: Country;
-  handleSelectCountry: (country: Country) => void;
+  onSelectCountry: (country: Country) => void;
 }
 
-const CountryCard: React.FC<CountryCardProps> = (props) => {
+const CountryCard: React.FC<CountryCardProps> = memo((props) => {
   const handleInteraction = () => {
-    props.handleSelectCountry(props.country);
+    props.onSelectCountry(props.country);
   };
 
   const handleKeyPress = (event: KeyboardEvent<HTMLDivElement>) => {
@@ -36,12 +36,10 @@ const CountryCard: React.FC<CountryCardProps> = (props) => {
         <h4 className={styles.Country_name}>
           {props.country.flag} {props.country.name.official}
         </h4>
-        <p className={styles.Country_capital}>
-          Capital: {props.country.capital}
-        </p>
+        <p className={styles.Country_capital}>Capital: {props.country.capital}</p>
       </div>
     </div>
   );
-};
+});
 
 export default CountryCard;
