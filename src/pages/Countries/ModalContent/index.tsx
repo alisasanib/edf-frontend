@@ -53,4 +53,6 @@ const ModalContent: React.FC<ModalContentProps> = memo(({ name }) => {
   );
 });
 
+ModalContent.displayName = "ModalContent";
+
 export default ModalContent;

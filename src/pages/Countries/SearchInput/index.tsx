@@ -110,4 +110,6 @@ const SearchInput: React.FC<SearchInputProps> = memo(
   }
 );
 
+SearchInput.displayName = "SearchInput";
+
 export default SearchInput;

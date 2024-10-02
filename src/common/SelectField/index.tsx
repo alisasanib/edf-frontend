@@ -41,4 +41,6 @@ const SelectField: React.FC<SelectFieldProps> = memo(({ value, onChange, options
   );
 });
 
+SelectField.displayName = "SelectField";
+
 export default SelectField;

@@ -42,4 +42,6 @@ const CountryCard: React.FC<CountryCardProps> = memo((props) => {
   );
 });
 
+CountryCard.displayName = "CountryCard";
+
 export default CountryCard;
