@@ -19,6 +19,11 @@ describe("InputField Component", () => {
     ariaExpanded: false,
     ariaControls: "autocomplete-list",
     ariaLabel: "Search for a country",
+    options: [
+      { id: 1, label: "Option 1" },
+      { id: 2, label: "Option 2" },
+      { id: 3, label: "Option 3" },
+    ],
   };
 
   test("<InputField />", () => {
@@ -38,11 +43,11 @@ describe("InputField Component", () => {
 
     const input = screen.getByRole("combobox");
 
-    fireEvent.change(input, { target: { value: "Germany" } });
+    fireEvent.change(input, { target: { value: "Option 1" } });
 
     expect(mockOnChange).toHaveBeenCalledTimes(1);
 
-    expect(mockOnChange).toHaveBeenCalledWith("Germany");
+    expect(mockOnChange).toHaveBeenCalledWith("Option 1");
   });
 
   test("displays an error message when errorMessage is provided", () => {
@@ -62,17 +67,47 @@ describe("InputField Component", () => {
     const input = screen.getByRole("combobox");
 
     fireEvent.focus(input);
-    expect(mockOnFocus).toHaveBeenCalledTimes(1);
+    expect(input).toHaveAttribute("aria-expanded", "true");
 
     fireEvent.blur(input);
-    expect(mockOnBlur).toHaveBeenCalledTimes(1);
+    expect(input).toHaveAttribute("aria-expanded", "false");
   });
 
-  test("handles key down events", () => {
+  test("handles ArrowDown and ArrowUp to navigate options", () => {
+    render(<InputField {...defaultProps} value="Option"/>);
+
+    const input = screen.getByRole("combobox");
+
+    fireEvent.focus(input);
+    fireEvent.keyDown(input, { key: "ArrowDown" });
+    expect(screen.getAllByTestId("autocomplete-option")[0]).toHaveAttribute("aria-selected", "true");
+
+    fireEvent.keyDown(input, { key: "ArrowDown" });
+    expect(screen.getAllByTestId("autocomplete-option")[1]).toHaveAttribute("aria-selected", "true");
+
+    fireEvent.keyDown(input, { key: "ArrowUp" });
+    expect(screen.getAllByTestId("autocomplete-option")[0]).toHaveAttribute("aria-selected", "true");
+  });
+
+  test("handles Enter key to select option", () => {
     render(<InputField {...defaultProps} />);
 
     const input = screen.getByRole("combobox");
+    fireEvent.focus(input);
+    fireEvent.keyDown(input, { key: "ArrowDown" });
+    fireEvent.keyDown(input, { key: "ArrowDown" });
     fireEvent.keyDown(input, { key: "Enter" });
-    expect(mockOnKeyDown).toHaveBeenCalledTimes(1);
+
+    expect(mockOnChange).toHaveBeenCalledWith("Option 2");
+  });
+
+  test("handles Escape key to close the list", () => {
+    render(<InputField {...defaultProps} />);
+
+    const input = screen.getByRole("combobox");
+    fireEvent.focus(input);
+    fireEvent.keyDown(input, { key: "Escape" });
+
+    expect(input).toHaveAttribute("aria-expanded", "false");
   });
 });

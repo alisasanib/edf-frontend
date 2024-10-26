@@ -70,7 +70,7 @@ const Countries: React.FC = () => {
         onSearchTermChange={handleSearchTermChange}
         onSearchByChange={handleSearchByChange}
         isAutoComplete={searchBy === "name"}
-        countries={countries}
+        options={countries.map((country) => ({ label: country.name.official, id: country.name.official }))}
       />
 
       <div className={styles.countries_list}>

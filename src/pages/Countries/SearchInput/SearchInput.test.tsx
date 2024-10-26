@@ -1,35 +1,19 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import SearchInput from ".";
-import { Country } from "../../../types/Country.dto";
 import "@testing-library/jest-dom";
 
-const mockCountries: Country[] = [
+const mockOptions: { label: string; id: string }[] = [
   {
-    name: { official: "Germany" },
-    flags: { png: "", alt: "" },
-    capital: "",
-    region: "",
-    subregion: "",
-    currencies: {},
-    languages: {},
+    label: "Germany",
+    id: "Germany",
   },
   {
-    name: { official: "France" },
-    flags: { png: "", alt: "" },
-    capital: "",
-    region: "",
-    subregion: "",
-    currencies: {},
-    languages: {},
+    label: "France",
+    id: "France",
   },
   {
-    name: { official: "Italy" },
-    flags: { png: "", alt: "" },
-    capital: "",
-    region: "",
-    subregion: "",
-    currencies: {},
-    languages: {},
+    label: "Italy",
+    id: "Italy",
   },
 ];
 
@@ -103,7 +87,7 @@ describe("<SearchInput />", () => {
         onSearchTermChange={mockOnSearchTermChange}
         onSearchByChange={mockOnSearchByChange}
         isAutoComplete={true}
-        countries={mockCountries}
+        options={mockOptions}
       />
     );
 
@@ -122,7 +106,7 @@ describe("<SearchInput />", () => {
         onSearchTermChange={mockOnSearchTermChange}
         onSearchByChange={mockOnSearchByChange}
         isAutoComplete={true}
-        countries={mockCountries}
+        options={mockOptions}
       />
     );
 
@@ -140,7 +124,7 @@ describe("<SearchInput />", () => {
         onSearchTermChange={mockOnSearchTermChange}
         onSearchByChange={mockOnSearchByChange}
         isAutoComplete={true}
-        countries={mockCountries}
+        options={mockOptions}
       />
     );
 
@@ -166,7 +150,7 @@ describe("<SearchInput />", () => {
         onSearchTermChange={mockOnSearchTermChange}
         onSearchByChange={mockOnSearchByChange}
         isAutoComplete={true}
-        countries={mockCountries}
+        options={mockOptions}
       />
     );
 

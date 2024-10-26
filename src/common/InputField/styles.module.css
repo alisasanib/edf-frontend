@@ -12,6 +12,34 @@
   box-shadow: rgba(100, 100, 100, 0.055) 0rem 0.125rem 0.5625rem;
 }
 
+.autocompleteList {
+  position: absolute;
+  max-height: 200px;
+  overflow: auto;
+  top: 51px;
+  background: white;
+  width: -webkit-fill-available;
+
+  box-shadow: var(--Paper-shadow);
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.autocompleteItem {
+  padding: 10px 16px;
+  cursor: pointer;
+}
+.activeItem {
+  background-color: var(--hover-background-color);
+}
+
+.autocompleteItem:hover {
+  background-color: var(--hover-background-color);
+}
+.autocompleteItem:focus {
+  background-color: var(--hover-background-color);
+}
+
 @media (max-width: 854px) {
   .input {
     padding: 0rem 0.6rem 0rem 0.6rem;
